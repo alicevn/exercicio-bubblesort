@@ -20,12 +20,15 @@ int main(){
     
     for(int i = 0; i< 5 && !ordenado; i++){
         ordenado = true;
+        
         for(int j = 0; j<4-i; j++){
             if(vetor[j] > vetor[j + 1]){
                 swap(vetor[j], vetor[j +1]);
                 ordenado = false;
             }
         }
+        if (ordenado) //essa condiçao interrompe o processo de ordenação quando já está ordenado
+            break;
     }
     cout<<endl;
     
