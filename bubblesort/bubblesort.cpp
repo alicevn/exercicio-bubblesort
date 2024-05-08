@@ -2,23 +2,28 @@
 
 using namespace std;
 
+void swap(int& a, int& b){
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
 int main(){
     
     int vetor[5] = {2, 4, 1, 7, 5};
-    int troca;
+    bool ordenado = false;
     
     cout<<"Vetor desordenado: ";
     for(int i = 0; i<5; i++){
         cout<<vetor[i] << "|";
     }
     
-    for(int i = 0; i< 5; i++){
-        
-        for(int j = 0; j<4; j++){
+    for(int i = 0; i< 5 && !ordenado; i++){
+        ordenado = true;
+        for(int j = 0; j<4-i; j++){
             if(vetor[j] > vetor[j + 1]){
-                troca = vetor[j];
-                vetor[j] = vetor[j + 1];
-                vetor[j + 1] = troca;
+                swap(vetor[j], vetor[j +1]);
+                ordenado = false;
             }
         }
     }
